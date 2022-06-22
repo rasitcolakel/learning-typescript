@@ -152,3 +152,60 @@ let age = 30;
 let name = "Rasit";
 let lowerCaseName = (<string>name).toLowerCase();
 ```
+
+## 4. Object Type
+
+```typescript
+let person = {
+  name: "Rasit",
+  age: 30,
+  gender: "Male",
+};
+// It equals to the type below thanks to type inference
+let person: {
+  name: string;
+  age: number;
+  gender: string;
+};
+person = {
+  name: "Rasit",
+  age: 30,
+  gender: "Male",
+};
+```
+
+## 5. Union Type and Literal Type
+
+It is used for giving one or more type for a variable or property.
+
+```typescript
+let person: {
+  name: string;
+  age: number;
+  gender: string | number;
+};
+
+person = {
+  name: "Rasit",
+  age: 30,
+  gender: 1,
+};
+```
+
+With specific options (literal type)
+
+```typescript
+let person: {
+  name: string;
+  age: number;
+  gender: "male" | "female";
+};
+
+person = {
+  name: "Rasit",
+  age: 30,
+  gender: "male",
+};
+```
+
+## 6. Custom Types
