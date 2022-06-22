@@ -85,6 +85,54 @@ let isLoading = true;
 // the variables below are types of boolean variable.
 ```
 
+### 1.4 Arrays
+
+To define an array, you can use the _**string[], number[], any[]**_ type.
+
+```typescript
+let names: string[] = ["Rasit", "Colakel"];
+let numbers: number[] = [0, 1, 2];
+let numbers: any[] = [0, "Rasit"];
+```
+
+### 1.5 Enums
+
+Enums are a way to define a set of named constants.
+
+```typescript
+enum Color {
+  Red,
+  Green,
+  Blue,
+}
+```
+
+### 1.6 Tuples
+
+Tuples are a way to define an array where the type of the elements is known, but the number of elements is not.
+
+```typescript
+let tuple: [string, number] = ["Rasit", 1];
+```
+
+### 1.7 Unknown Type
+
+Unknown type is a type that is used when the type of a variable is not known. But it is different from the _**any**_ type.
+
+```typescript
+let a: unknown;
+let b: string = a;
+// Error: Type 'unknown' is not assignable to type 'string'.
+```
+
+The difference between unknown and any is, you can assign an any type to a variable. But, you can not assign an unknown type to a variable.
+
+```typescript
+let a: any;
+let b: string = a;
+// Error: Type 'unknown' is not assignable to type 'string'.
+```
+
 ## 2. Type Inference
 
 ---
@@ -97,3 +145,10 @@ let age = 30;
 ```
 
 > In this case, the compiler will automatically assign the type of **'name'** as string and the type of **'age'** as number.
+
+## 3. Type Assertions
+
+```typescript
+let name = "Rasit";
+let lowerCaseName = (<string>name).toLowerCase();
+```
