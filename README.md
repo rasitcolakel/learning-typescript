@@ -348,7 +348,17 @@ interface Person {
 
 interface Employee extends Person {
   readonly id: number;
-
   getSalary(): number;
 }
+
+let newEmployee: Employee;
+
+newEmployee = {
+  id: 1,
+  name: "Rasit",
+  age: 30,
+  getSalary: () => {
+    return 1000;
+  },
+};
 ```
