@@ -209,3 +209,146 @@ person = {
 ```
 
 ## 6. Custom Types
+
+Example 1
+
+```typescript
+type Color = {
+  name: string;
+  hex: string;
+};
+
+let user: {
+  name: string;
+  age: number;
+  gender: "male" | "female";
+  color: Color;
+};
+```
+
+Example 2
+
+```typescript
+type Color = {
+  name: string;
+  hex: string;
+};
+
+type User = {
+  name: string;
+  age: number;
+  gender: "male" | "female";
+  color: Color;
+};
+
+let user: User;
+user.color = {
+  name: "black",
+  hex: "#000",
+};
+```
+
+## 7. Functions
+
+```typescript
+// The code below does not return any value.
+const add = (n1, n2) => {
+  console.log(n1 + n2);
+};
+add(1, 2);
+// it will prints the sum of the numbers
+```
+
+```typescript
+// Giving types to the parameters
+const add = (n1: number, n2: number) => {
+  console.log(n1 + n2);
+};
+// it will prints the sum of the numbers, too.
+add(1, 2);
+```
+
+```typescript
+// Giving types to the return value
+const add = (n1: number, n2: number): number => {
+  return n1 + n2;
+};
+// it will return the sum of the numbers
+const sum: number = add(1, 2);
+```
+
+```typescript
+// Optional parameters
+const add = (n1: number, n2?: number) => {
+  return n1 + n2;
+};
+// n1 is required but n2 is optional
+const sum = add(1);
+```
+
+```typescript
+// default values
+const add = (n1: number, n2: number = 0): number => {
+  return n1 + n2;
+};
+// n1 is required but n2 is optional
+const sum = add(1);
+```
+
+## 8. Interfaces
+
+```typescript
+interface Employee {
+  id: number;
+  name: string;
+  age: number;
+  getSalary(): number;
+}
+
+let newEmployee: Employee;
+newEmployee = {
+  id: 1,
+  name: "Rasit",
+  age: 30,
+  getSalary: () => {
+    return 1000;
+  },
+};
+```
+
+```typescript
+//read only property
+interface Employee {
+  readonly id: number;
+  name: string;
+  age: number;
+  getSalary(): number;
+}
+
+let newEmployee: Employee;
+newEmployee = {
+  id: 1,
+  name: "Rasit",
+  age: 30,
+  getSalary: () => {
+    return 1000;
+  },
+};
+
+// it will throw an error when you want to change the value of id property
+newEmployee.id = 2;
+```
+
+```typescript
+// Extending interfaces
+interface Person {
+  name: string;
+  age: number;
+}
+
+interface Employee extends Person {
+  readonly id: number;
+
+  getSalary(): number;
+}
+```
